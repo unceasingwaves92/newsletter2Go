@@ -1,0 +1,377 @@
+{
+	"info": {
+		"_postman_id": "6be05186-a99e-4f4d-9742-3b7736da9c4a",
+		"name": "newsletter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OAuth Login / Retrieve Access Token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic cmltcDJqNDNfMWNMVk51X0wzTlVDNl83NEhDMm1LbDRTXzI3Skp6eUw6NGh4NGRiOWY=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"karthikchidambaram86@gmail.com\",\r\n  \"password\": \"nedumaran@86\",\r\n  \"grant_type\": \"https://nl2go.com/jwt\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.newsletter2go.com/oauth/v2/token",
+					"protocol": "https",
+					"host": [
+						"api",
+						"newsletter2go",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"v2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new List",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer __eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfXy5haWQiOjQzMTI5MSwiX18uZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwiX18uZXhwaXJlc0F0IjoxNjA2NTkwMDUzLCJfXy5zY29wZSI6IiIsIl9fLmNpZCI6Ijk0MDQ3XzFjTFZOdV9MM05VQzZfNzRIQzJtS2w0U18yN0pKenlMIiwiX18ucmQxIjoxMjk3MiwiX18ucmQyIjozMjA0M30.APCf4LHsPEvpxUfT9XovIU0BNueozR87mnAPP_sd-_4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"My new List1\",\r\n  \"uses_econda\": false,\r\n  \"uses_googleanalytics\": true,\r\n  \"has_opentracking\": true,\r\n  \"has_clicktracking\": true,\r\n  \"has_conversiontracking\": false,\r\n  \"imprint\": \"http://example.org/imprint\",\r\n  \"header_from_email\": \"info@mybusiness.tld\",\r\n  \"header_from_name\": \"My Business\",\r\n  \"header_reply_email\": \"info@mybusiness.tld\",\r\n  \"header_reply_name\": \"My Business\",\r\n  \"tracking_url\": null,\r\n  \"landingpage\": \"http://example.org/unsubscribe-landingpage\",\r\n  \"use_ecg_list\": false\r\n}"
+				},
+				"url": {
+					"raw": "https://api.newsletter2go.com/lists",
+					"protocol": "https",
+					"host": [
+						"api",
+						"newsletter2go",
+						"com"
+					],
+					"path": [
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new segment for the new List",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer __eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfXy5haWQiOjQzMTI5MSwiX18uZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwiX18uZXhwaXJlc0F0IjoxNjA2NTkwMDUzLCJfXy5zY29wZSI6IiIsIl9fLmNpZCI6Ijk0MDQ3XzFjTFZOdV9MM05VQzZfNzRIQzJtS2w0U18yN0pKenlMIiwiX18ucmQxIjoxMjk3MiwiX18ucmQyIjozMjA0M30.APCf4LHsPEvpxUfT9XovIU0BNueozR87mnAPP_sd-_4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"list_id\": \"o0c7apjn\",\r\n\t\"name\": \"New regular Segment\",\r\n\t\"is_dynamic\": false\r\n}"
+				},
+				"url": {
+					"raw": "https://api.newsletter2go.com/groups",
+					"protocol": "https",
+					"host": [
+						"api",
+						"newsletter2go",
+						"com"
+					],
+					"path": [
+						"groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update the segment",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer __eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfXy5haWQiOjQzMTI5MSwiX18uZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwiX18uZXhwaXJlc0F0IjoxNjA2NTkwMDUzLCJfXy5zY29wZSI6IiIsIl9fLmNpZCI6Ijk0MDQ3XzFjTFZOdV9MM05VQzZfNzRIQzJtS2w0U18yN0pKenlMIiwiX18ucmQxIjoxMjk3MiwiX18ucmQyIjozMjA0M30.APCf4LHsPEvpxUfT9XovIU0BNueozR87mnAPP_sd-_4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"A new Segment Name\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.newsletter2go.com/groups/qlden7yb",
+					"protocol": "https",
+					"host": [
+						"api",
+						"newsletter2go",
+						"com"
+					],
+					"path": [
+						"groups",
+						"qlden7yb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all the list and verify the existance of new list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer __eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfXy5haWQiOjQzMTI5MSwiX18uZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwiX18uZXhwaXJlc0F0IjoxNjA2NTkwMDUzLCJfXy5zY29wZSI6IiIsIl9fLmNpZCI6Ijk0MDQ3XzFjTFZOdV9MM05VQzZfNzRIQzJtS2w0U18yN0pKenlMIiwiX18ucmQxIjoxMjk3MiwiX18ucmQyIjozMjA0M30.APCf4LHsPEvpxUfT9XovIU0BNueozR87mnAPP_sd-_4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.newsletter2go.com/lists",
+					"protocol": "https",
+					"host": [
+						"api",
+						"newsletter2go",
+						"com"
+					],
+					"path": [
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete the newly created list",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer __eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfXy5haWQiOjQzMTI5MSwiX18uZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwiX18uZXhwaXJlc0F0IjoxNjA2NTkwMDUzLCJfXy5zY29wZSI6IiIsIl9fLmNpZCI6Ijk0MDQ3XzFjTFZOdV9MM05VQzZfNzRIQzJtS2w0U18yN0pKenlMIiwiX18ucmQxIjoxMjk3MiwiX18ucmQyIjozMjA0M30.APCf4LHsPEvpxUfT9XovIU0BNueozR87mnAPP_sd-_4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.newsletter2go.com/lists/o0c7apjn",
+					"protocol": "https",
+					"host": [
+						"api",
+						"newsletter2go",
+						"com"
+					],
+					"path": [
+						"lists",
+						"o0c7apjn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all the users and verify your details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer __eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfXy5haWQiOjQzMTI5MSwiX18uZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwiX18uZXhwaXJlc0F0IjoxNjA2NTkwMDUzLCJfXy5zY29wZSI6IiIsIl9fLmNpZCI6Ijk0MDQ3XzFjTFZOdV9MM05VQzZfNzRIQzJtS2w0U18yN0pKenlMIiwiX18ucmQxIjoxMjk3MiwiX18ucmQyIjozMjA0M30.APCf4LHsPEvpxUfT9XovIU0BNueozR87mnAPP_sd-_4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.newsletter2go.com/users",
+					"protocol": "https",
+					"host": [
+						"api",
+						"newsletter2go",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user detail (yours)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer __eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfXy5haWQiOjQzMTI5MSwiX18uZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwiX18uZXhwaXJlc0F0IjoxNjA2NTkwMDUzLCJfXy5zY29wZSI6IiIsIl9fLmNpZCI6Ijk0MDQ3XzFjTFZOdV9MM05VQzZfNzRIQzJtS2w0U18yN0pKenlMIiwiX18ucmQxIjoxMjk3MiwiX18ucmQyIjozMjA0M30.APCf4LHsPEvpxUfT9XovIU0BNueozR87mnAPP_sd-_4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.newsletter2go.com/users/rkmaz913",
+					"protocol": "https",
+					"host": [
+						"api",
+						"newsletter2go",
+						"com"
+					],
+					"path": [
+						"users",
+						"rkmaz913"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update the user details (yours) and verify the updated changes",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer __eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfXy5haWQiOjQzMTI5MSwiX18uZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwiX18uZXhwaXJlc0F0IjoxNjA2NTkwMDUzLCJfXy5zY29wZSI6IiIsIl9fLmNpZCI6Ijk0MDQ3XzFjTFZOdV9MM05VQzZfNzRIQzJtS2w0U18yN0pKenlMIiwiX18ucmQxIjoxMjk3MiwiX18ucmQyIjozMjA0M30.APCf4LHsPEvpxUfT9XovIU0BNueozR87mnAPP_sd-_4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"language\": \"en_US\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.newsletter2go.com/users/rkmaz913",
+					"protocol": "https",
+					"host": [
+						"api",
+						"newsletter2go",
+						"com"
+					],
+					"path": [
+						"users",
+						"rkmaz913"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "rimp2j43_1cLVNu_L3NUC6_74HC2mKl4S_27JJzyL:4hx4db9f",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}
